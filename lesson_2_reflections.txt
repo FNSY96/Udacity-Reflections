@@ -5,36 +5,125 @@ What happens when you initialize a repository? Why do you need to do it?
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
     It acts as a transit for the files that will be commit to the repo.
-    I do not see any important value for it, I see that we should commit direct-
-    ly to the repo.
+    I do not see any important value for it, I see that we should commit
+    directly to the repo.
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+    Through comparing its content to the working directory.
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
+    Making another version and I don't want to affect the main one.
+    Dividing the project between developers as each code modify a certain part.
 
 How do the diagrams help you visualize the branch structure?
+    It makes the imagination of how the branching and merging works, besides it
+    strengthen on the idea of back-reference and reachability.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+    The result is:
+    1. The lines from commit before branching will be compared to the 2 commits
+    to be merged where : if any line is not present in one of the 2 commits it
+    will   be deleted, if any line is added in one of the 2 commits it will be
+    added to the merged file.
+    2. The branches merge in the checked-out branch, pointing to both parents
+    from both branches so on getting git log we see both commits according to
+    time stamp.
+    We represent it in the diagram the way we do so we can visualize easily
+    the path we are merging or branching and know which commit is the parent of
+    the other and so on.
 
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+    1. Auto
+    1.1. Pros:
+    It allows the merged commit to be generated faster without detailing into
+    the code and seeing what may needs to be added or removed.
+    1.2 Cons:
+    Since it is not a human mind, it may create new conflicts due to that "blind
+    merging".
+
+    2. Manually
+    2.1 Pros:
+    It guarantees that the code will still be in harmony after merging and
+    reduces the probability of having conflicts.
+    2.2
+    It may take a longer time to merge each line by line manually.
 
 ================================================================================
 Important Terminal Commands
-1. git init // create a repository
-2. git status // shows what files changed since last commit
-3. git add // adds the file from working directory to the staging area preparing
-              to commit it
-4. git commit // it should commit the files from staging area to the repository
+1. git init
+    // create a repository
+2. git status
+    // shows what files changed since last commit
+3. git add
+    // adds the file from working directory to the staging area preparing
+      to commit it
+4. git commit
+    // it should commit the files from staging area to the repository
               after opening the text editor to add the commit message
               Notice: commit message should be written as an order
-5. git commit -m "Commit message" // to write the message directly without
-                                  opening the text editor
+5. git commit -m "Commit message"
+    // to write the message directly without opening the text editor
 6.  git config --global user.name "Your Name"
     git config --global user.email you@example.com
     // to configure the user name and email used in the commits
 7. git commit --amend --reset-author
     // to reset the author of a certain commit
+8. git diff (again)
+    // this time without arguments, will compare files in
+    working directory to those in staging area those
+9. git diff --staged
+    // Will compare staging area to latest commit repository
+10. git reset --hard
+    // Will reset any changes in working directory and staging area
+11. git branch
+    // this will show the current branches available
+12. git branch "name of branch"
+    // this will create a branch from this point with the name between brackets
+13. git checkout "branch name"
+    // will make the name between the brackets the current branch we are working
+    on
+14. git log --graph --oneline branch1 branch2
+    // this will visualize the branch activities as if they where real graphs
+    Notice that branch2 must be checked out
+15. git checkout -b "new branch name"
+    // equivalent to: {git branch "new branch name"
+                  and git checkout "new branch name"}
+16. git merge branch1 branch2
+    // it will merge branch1, branch2 and the checked-out branch into the
+    checked-out branch
+17. git show
+    // will show what changes are done to a commit compared to its parent
+18. git branch -d "branch name"
+    // deletes the branch label (Reference) NOT its commits
+19. git merge --abort
+    // to abort the merging process
+20.
+================================================================================
+- Master is the name given to the main branch of the repo
+- Making a new commit will append to the selected branch
+- Remote Branch means that another developer (not me) have created this branch
+- A note about git merge: git merge will also include the currently checked-out
+branch in the merged version. So if you have branch1 checked out, and you run
+git merge branch2 branch3, the merged version will combine branch1 as well as
+branch2 and branch3. That’s because the branch1 label will update after you make
+the merge commit, so it’s unlikely that you didn’t want the changes from
+branch1 included in the merge. For this reason, you should always checkout one
+of the two branches you’re planning on merging before doing the merge. Which
+one you should check out depends on which branch label you want to point to
+the new commit.
+
+Since the checked-out branch is always included in the merge, you may have
+guessed that when you are merging two branches, you don't need to specify both
+of them as arguments to git merge on the command line. If you want to merge
+branch2 into branch1, you can simply git checkout branch1 and then type git
+merge branch2. The only reason to type git merge branch1 branch2 is if it helps
+you keep better mental track of which branches you are merging.
+
+Also, since the two branches are merged, the order in which they are typed into
+the command line does not matter. The key is to remember that git merge always
+merges all the specified branches into the currently checked out branch,
+creating a new commit for that branch.
