@@ -45,3 +45,5 @@ master?  What benefits does each approach have?
     // returns detailed info about the remote
 6. git push "remote name" "branch name"
     // will push the branch to the remote repo with its name (branch's name)
+7. git pull "remote name" "branch name"
+    // pulls any new commits on the branch to the local device
