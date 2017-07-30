@@ -4,6 +4,9 @@ What happens when you initialize a repository? Why do you need to do it?
 
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
+    It acts as a transit for the files that will be commit to the repo.
+    I do not see any important value for it, I see that we should commit direct-
+    ly to the repo.
 
 How can you use the staging area to make sure you have one commit per logical
 change?
@@ -23,4 +26,15 @@ manually?
 Important Terminal Commands
 1. git init // create a repository
 2. git status // shows what files changed since last commit
-3. git add // adds the file to the staging area preparing to commit it
+3. git add // adds the file from working directory to the staging area preparing
+              to commit it
+4. git commit // it should commit the files from staging area to the repository
+              after opening the text editor to add the commit message
+              Notice: commit message should be written as an order
+5. git commit -m "Commit message" // to write the message directly without
+                                  opening the text editor
+6.  git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+    // to configure the user name and email used in the commits
+7. git commit --amend --reset-author
+    // to reset the author of a certain commit
