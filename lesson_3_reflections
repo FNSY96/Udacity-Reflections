@@ -1,0 +1,13 @@
+1. git credential-osxkeychain
+    // to test if osxkeychain helper is installed on the device
+2. git config --global credential.helper osxkeychain
+    // to enable the auto completion for passwords on macOS through keychain
+    (password caching)
+3. git remote (with no args)
+    // shows the remotes I am having on a certain repo
+4. git remote add "name" link
+    // creates a new name (refers to the repo specified in the link)
+5. git remote -v (verbose)
+    // returns detailed info about the remote
+6. git push "remote name" "branch name"
+    // will push the branch to the remote repo with its name (branch's name)
