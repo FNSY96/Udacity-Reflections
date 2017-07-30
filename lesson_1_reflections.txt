@@ -1,0 +1,74 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    We would realize the mistakes in comparing the 2 versions and let us emphas-
+    ize on the differences between them which were added or removed.
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    This would help to revise the mistakes in the future and also. during work
+    it would allow me to restores code.
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    To reduce the number of un useful commits / versions.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    Because the purpose of git is to keep tracking a whole process of updates
+    through one or more files, will in google docs we need not to change several
+    things in parallel.
+
+How can you use the commands git log and git diff to view the history of files?
+
+    Use git log to see all the versions where I can get the id of any to versio-
+    ns I like to compare them to each other, then use git diff to visualize the
+    difference between them
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    If any mistake / bug appeared I could easily return to the elder commits
+    till I reach the one with no bug and make a "git checkout..." command for
+    its is.
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    I like to use on my projects to start VCS.
+
+
+
+
+
+
+================================================================================
+one commit per logical change
+What is a README?
+  Many projects contain a file named "README" that gives a general description
+  of what the project does and how to use it. It's often a good idea to read
+  this file before doing anything with the project, so the file is given this
+  name to make users more likely to read it.
+
+Git Errors and Warnings Solution
+  Should not be doing an octopus
+  Octopus is a strategy Git uses to combine many different versions of code tog-
+  ether. This message can appear if you try to use this strategy in an inapprop-
+  riate situation.
+
+  You are in 'detached HEAD' state
+  HEAD is what Git calls the commit you are currently on. You can “detach” the
+  HEAD by switching to a previous commit, which we’ll see in the next video.
+  Despite what it sounds like, it’s actually not a bad thing to detach the HEAD.
+  Git just warns you so that you’ll realize you’re doing it.
+================================================================================
+Important Terminal Commands
+1. git --version // To see the version of the installed git on you computer
+2. git clone // To clone the full history of the project not the final one only
+3. git log // to view all the commits history
+4. git diff v1 v2 // to compare differences between 2 versions
+5. git config --global color.ui auto // to make the terminal colourful
+6. git checkout ID // to make the current head the commit with id: ID
