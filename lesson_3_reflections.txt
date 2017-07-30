@@ -16,22 +16,32 @@ automatically stay up-to-date with your remote repository?
 Describe the differences between forks, clones, and branches.  When would you
 use one instead of another?
 
-    Fill in your answer here
+    - forking is like cloning that github does for you on their machines
+    - forks refer (link back to the original repo they were forked from)
+    - branches happen on single repo
+    - cloning copies the the repo from remote to local or local to local
 
 What is the benefit of having a copy of the last known state of the remote
 stored locally?
 
-    Fill in your answer here
+    It will help to identify whether the local branch is ahead or behind it,
+    also, it may help in merging both local branch and remote stored locally to
+    solve a conflict.
 
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
 
-    Fill in your answer here
+    I would rather use another platform from the earlier discussed platforms.
 
 When would you want to make changes in a separate branch rather than directly in
 master?  What benefits does each approach have?
 
-    Fill in your answer here
+    On working in a collaborative project which need approval of another
+    contributors or when trying to avoid having a broken master.
+    The first guarantees the harmony of the development process and reduces the
+    chance to have buggy master tip.
+    The second is easier to deal with as it has no pull-requests and approvals
+    and such things!
 
 ================================================================================
 1. git credential-osxkeychain
@@ -49,3 +59,29 @@ master?  What benefits does each approach have?
     // will push the branch to the remote repo with its name (branch's name)
 7. git pull "remote name" "branch name"
     // pulls any new commits on the branch to the local device
+8. git fetch
+    // updates the local copy of the remote branch, where it creates a branch at
+    point of conflict
+================================================================================
+- cloning a repo sets an automatic remote (origin) on the local device
+- git pull = git fetch origin + git merge origin(local master branch) master(online master branch)
+- git stores local copies of all the remote branches, this contains the state of
+the remote at the last time you pushed or pulled the branch
+- git status is comparing master to your local copy: origin/master
+- Notice that you have 2 references:
+  1. origin/master which is the local ref. to the master branch in the remote
+  repository.
+  2. master which is the local branch (master).
+- Fast-Forward merge: When merging an ancestor (a) to a certain commit (b) of
+                      the branch we only move the reference of the ancestor (a) to that
+                      commit (b) with no need for a true merging.
+                      * There is a way to get from b to a
+                      * Even when the merge is a fast-forward merge,
+                        GitHub still creates this commit.
+- pull request = merge request
+- Committing a change actually doesn't remove it from the staging area. Instead,
+ the staging area and the latest commit will contain the same state until you
+ add more changes to the staging area.
+- pushing the branch automatically updates the pull request
+- In collaborative environment it is preferable to update "master" through
+  pull requests
