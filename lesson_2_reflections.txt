@@ -101,7 +101,8 @@ Important Terminal Commands
     // deletes the branch label (Reference) NOT its commits
 19. git merge --abort
     // to abort the merging process
-20.
+20. git add .
+    // to add all files in the directory once
 ================================================================================
 - Master is the name given to the main branch of the repo
 - Making a new commit will append to the selected branch
